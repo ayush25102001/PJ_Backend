@@ -16,10 +16,12 @@ const router=new express.Router()
 
 
 
-//create user
+//view users
 router.get('/api/users',async (req,res)=>{
     res.send("HELLO")
 })
+
+//create user
 router.post('/api/users',async (req,res)=>{
     const user=new User(req.body)
     //const token=jwt.sign({_id:user._id},'hello')
