@@ -35,15 +35,15 @@ router.post('/api/users',async (req,res)=>{
 
 
 //user login
-// router.post('/api/login',async (req,res)=>{
-//     try{
-//         const user = await User.findByCredentials(req.body.email,req.body.password)
-//         const token=jwt.sign({_id:user._id},'hello')
-//         res.send({token }) 
-//     }catch(e){
-//         res.status(400).send('false')
-//     }
-// })
+router.post('/api/login',async (req,res)=>{
+    try{
+        const user = await User.findByCredentials(req.body.email,req.body.password)
+        const token=jwt.sign({_id:user._id},'hello')
+        res.send({token}) 
+    }catch(e){
+        res.status(400).send('false')
+    }
+})
 
 module.exports=router
 
