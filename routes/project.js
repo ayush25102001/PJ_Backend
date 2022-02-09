@@ -9,7 +9,7 @@ const verifyToken=require('../middleware/auth')
 
 
 
-//view users
+//view projects
 router.get('/api/projects',async (req,res)=>{
     const projects=await Project.find({})
     res.send(projects)
