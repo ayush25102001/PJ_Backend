@@ -11,10 +11,11 @@ const verifyToken=require('../middleware/auth')
 
 //view users
 router.get('/api/projects',async (req,res)=>{
-    res.send("HELLO")
+    const projects=await Project.find({})
+    res.send(projects)
 })
 
-//create user
+//create project
 router.post('/api/projects',verifyToken, async (req,res)=>{
     const project=new Project({...req.body,owner:req.user._id})
     try{
