@@ -7,8 +7,8 @@ const port=process.env.PORT || 5000
 app.use(express.json())
  
 
-// const notesRoute=require('./routes/projects')
-// app.use(notesRoute)
+const projectRoute=require('./routes/project')
+app.use(projectRoute)
 
 const userRoute=require('./routes/user')
 app.use(userRoute)

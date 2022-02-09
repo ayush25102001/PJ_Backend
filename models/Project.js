@@ -14,7 +14,6 @@ const projectSchema = new mongoose.Schema({
     },
     owner: {                          //Id of the user to whom the task belongs
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'User'
     },
     skillsRequired: [{
