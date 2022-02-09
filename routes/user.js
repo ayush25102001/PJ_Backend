@@ -1,9 +1,9 @@
 const mongoose=require('mongoose')
 const express=require('express')
 const User=require('../models/User')
-//const jwt=require('jsonwebtoken')
+const jwt=require('jsonwebtoken')
 const router=new express.Router()
-//const verifyToken=require('../middleware/auth')
+const verifyToken=require('../middleware/auth')
 
 
 // router.get('/api/welcome',verifyToken,async (req,res)=>{
@@ -24,10 +24,10 @@ router.get('/api/users',async (req,res)=>{
 //create user
 router.post('/api/users',async (req,res)=>{
     const user=new User(req.body)
-    //const token=jwt.sign({_id:user._id},'hello')
+    const token=jwt.sign({_id:user._id},'hello')
     try{
         await user.save()
-        res.status(201).send(user)                       //.send({token})
+        res.status(201).send({user,token})                       //.send({token})
     }catch(e){
         res.status(400).send('false')
     }
